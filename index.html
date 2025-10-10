@@ -8,11 +8,6 @@
 </head>
 <body>
 <div id="wrapper">
-    <button 
-        onclick="changeScene('livingroom', 'Olohuone', true, '<p>Valvojan siirto</p>')" 
-        style="position: fixed; top: 10px; right: 10px; background: none; border: none; color: #333; font-size: 0.7em; cursor: pointer; z-index: 100; opacity: 0.05;">
-        VALVOJAN SIIRTO
-    </button>
 
     <div id="start-screen" class="scene-intro">
         <h1>💀 KIROTTU AARRE JA IKUISET VARJOT 💀</h1>
@@ -23,9 +18,9 @@
     <div id="game-screen" style="display: none;">
         <div id="timer-box">
             <h2 id="timer-display">Jäljellä: 02:00:00</h2>
-            <div id="room-status">Huone: Kylpyhuone / Keittiö</div>
+            <div id="room-status">Huone: -</div>
         </div>
-        
+
         <div id="scene-wrapper">
             <img id="scene-current" src="kartano.png" alt="Nykyinen tausta" />
             <img id="scene-next" src="" alt="Seuraava tausta" />
