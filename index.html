@@ -8,7 +8,10 @@
 </head>
 <body>
   <div id="game-container">
-    <img id="background" src="kartano.png" alt="Alku" />
+    <div id="scene-wrapper">
+      <img id="scene-current" src="kartano.png" alt="Nykyinen tausta" />
+      <img id="scene-next" src="" alt="Seuraava tausta" />
+    </div>
 
     <div id="story-panel">
       <h1>Haamu-herran Kartano</h1>
@@ -19,7 +22,11 @@
       <button id="start-button">Astu Kartanoon</button>
     </div>
 
-    <button id="next-button" style="display:none;">Seuraava huone</button>
+    <div id="puzzle-panel" style="display:none;">
+      <h2 id="puzzle-title"></h2>
+      <p id="puzzle-text"></p>
+      <button id="next-button">Seuraava huone</button>
+    </div>
   </div>
 
   <audio id="tausta-audio" src="tausta.m4a" loop></audio>
