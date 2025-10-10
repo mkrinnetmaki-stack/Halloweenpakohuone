@@ -1,0 +1,144 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: monospace, sans-serif; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1.5s ease-in-out;
+}
+
+/* --- TAUSTAKUVAT HUONEITTAIN --- */
+
+/* Intro: Kartanon ulkoa */
+.scene-intro {
+    background-image: url('http://googleusercontent.com/image_collection/image_retrieval/9204319513118371716');
+    background-color: #383838; /* Fallback väri */
+    background-size: cover;
+}
+
+/* Taso 1: Kylpyhuone / Keittiö */
+.scene-kitchen {
+    background-image: url('http://googleusercontent.com/image_collection/image_retrieval/8106323930949602380');
+    background-color: #4b4b4b; /* Fallback väri */
+    background-size: cover;
+}
+
+/* Taso 2: Olohuone */
+.scene-livingroom {
+    background-image: url('http://googleusercontent.com/image_collection/image_retrieval/11038752055206625640');
+    background-color: #5d5d5d; /* Fallback väri */
+    background-size: cover;
+}
+
+/* Taso 3: Lapsen Huone */
+.scene-kidsroom {
+    background-image: url('http://googleusercontent.com/image_collection/image_retrieval/15505157192141230523');
+    background-color: #707070; /* Fallback väri */
+    background-size: cover;
+}
+
+/* --- YLEISET TYYLIT --- */
+
+#wrapper {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border: 5px solid #8b0000;
+    box-shadow: 0 0 30px #8b0000;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    margin: 20px auto;
+}
+
+h1, h2, h3 {
+    color: #ffd700;
+    text-shadow: 0 0 10px #8b0000;
+}
+
+/* Varmistetaan, että isommat otsikot skaalautuvat puhelimelle */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    #timer-display {
+        font-size: 1.8em;
+    }
+    button {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+}
+
+
+#timer-box {
+    border: 2px solid #8b0000;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(139, 0, 0, 0.5);
+}
+
+#timer-display {
+    font-size: 2.5em;
+    margin: 0;
+    color: #ffd700;
+}
+
+#room-status {
+    font-size: 1.2em;
+    margin-top: 5px;
+    color: #fff;
+}
+
+#puzzle-content, #digital-lock, #final-lock {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #8b0000;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    max-width: 300px;
+    font-size: 1.2em;
+    background-color: #333;
+    border: 2px solid #8b0000;
+    color: #ffd700;
+    text-align: center;
+    font-family: monospace;
+}
+
+button {
+    background-color: #8b0000;
+    color: #fff;
+    padding: 10px 20px;
+    border: 3px solid #ffd700;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    font-family: monospace, sans-serif; 
+}
+
+button:hover {
+    background-color: #a00000;
+}
+
+#lock-message, #final-lock-message {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #00ff00;
+}
+
+.start-hint {
+    font-style: italic;
+    margin-top: 20px;
+}

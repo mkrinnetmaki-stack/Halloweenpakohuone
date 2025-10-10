@@ -1,0 +1,70 @@
+<div id="wrapper">
+    <button 
+        onclick="changeScene('livingroom', 'Olohuone', true)" 
+        style="position: fixed; top: 10px; right: 10px; background: none; border: none; color: #333; font-size: 0.7em; cursor: pointer; z-index: 100; opacity: 0.05;">
+        VALVOJAN SIIRTO
+    </button>
+
+    <div id="start-screen" class="scene-intro">
+        <h1>💀 KIROTTU AARRE JA IKUISET VARJOT 💀</h1>
+        
+        <p>
+            Tervetuloa pimeimpään Halloweeniin! Olette astuneet **Hylätyn kartanon** porttien sisään. Ilmassa leijuu kylmä, raskas tuoksu, ja tuuli ujeltaa raosta kellarin ikkunassa. Paha **Haamu-herra** on siepannut itse Halloweenin Hengen ja lukinnut sen **Pimeyden Arkkuun**!
+        </p>
+        <p>
+            Aikaa on vain kaksi tuntia (120 minuuttia) kerätä kolme avainta ja vapauttaa Henki. Jos epäonnistutte, maailma vaipuu tylsyyteen ikuisiksi ajoiksi.
+        </p>
+        
+        <p class="start-hint">Etsi ensimmäinen vihje sieltä, missä aaveet useimmiten heijastuvat...</p>
+        <button onclick="startGame()">ALOITA SEIKKAILU (2:00:00)</button>
+    </div>
+
+    <div id="game-screen" style="display: none;">
+        <div id="timer-box">
+            <h2 id="timer-display">Jäljellä: 02:00:00</h2>
+            <div id="room-status">Huone: Kylpyhuone / Keittiö</div>
+        </div>
+        
+        <div id="puzzle-content">
+            <p id="room-description">Etsi ensimmäinen vihje Kylpyhuoneen "kyyneleestä", jotta saat selville salakirjoituksen siirtoarvon!</p>
+        </div>
+
+        <div id="digital-lock" style="display: none;">
+            <h3>DIGITAALINEN LUKKO</h3>
+            <p>Syötä salasana, jonka sait laskutehtävistä ja fyysisestä lukosta:</p>
+            <input type="text" id="lock-input" placeholder="Salasana..." maxlength="6">
+            <button onclick="checkLock()">AVAA LUKKO</button>
+            <p id="lock-message"></p>
+            
+            <button id="continue-to-level3" onclick="continueToLevel3()" style="display: none;">
+                JATKA PELIÄ LAPSEN HUONEESEEN
+            </button>
+        </div>
+        
+        Taso 2) -->
+        <button id="manual-next-button" onclick="manualNextLevel()" style="display: none;">
+            Olen ratkaissut fyysisen lukon, siirry eteenpäin
+        </button>
+        
+        <div id="final-lock" style="display: none; margin-top: 40px; border: 3px dashed #FFD700; padding: 20px;">
+            <h3>PIMEYDEN ARKUN LUKKO</h3>
+            <p>Syötä Lapsen Huoneen pulman ratkaisukoodi (kolme numeroa):</p>
+            <input type="text" id="final-lock-input" placeholder="Koodi..." maxlength="3">
+            <button onclick="checkFinalLock()">AVAA ARKUN LUKKO</button>
+            <p id="final-lock-message"></p>
+        </div>
+    </div>
+
+    <div id="game-over-screen" style="display: none;">
+        <h1>GAME OVER! Aika loppui!</h1>
+        <p>Haamu-herra nauroi, mutta onneksi sinulla on vielä yksi mahdollisuus. Voitte jatkaa, mutta aikaa lasketaan nyt eteenpäin.</p>
+        <button onclick="continueGame()">JATKA PELIÄ (Lisäaika)</button>
+    </div>
+
+    <div id="finale-screen" style="display: none;">
+        <h1>🔥 HALLOWEEN PELASTETTU! 🔥</h1>
+        <h2 id="final-time"></h2>
+        <p>Olette vapauttaneet Halloweenin Hengen Pimeyden Arkusta! Nyt menkää ja nautimaan palkinnostanne!</p>
+    </div>
+    
+</div>
