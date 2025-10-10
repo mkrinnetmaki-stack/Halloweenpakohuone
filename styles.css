@@ -39,11 +39,6 @@ body {
   object-fit: cover;
   top: 0;
   left: 0;
-  transition: transform 5s ease;
-}
-
-#scene-next {
-  transform: translateX(100%);
 }
 
 button {
