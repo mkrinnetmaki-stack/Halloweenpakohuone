@@ -21,6 +21,8 @@ function playDoorTransition(newImage) {
   oviAudio.play();
 
   sceneNext.src = newImage;
+  sceneNext.style.transition = "none";
+  sceneCurrent.style.transition = "none";
   sceneNext.style.transform = "translateX(100%)";
   sceneCurrent.style.transform = "translateX(0%)";
 
@@ -61,10 +63,10 @@ function changeScene(sceneName, roomText, showLock = false, descriptionHTML) {
 
   const images = {
     intro: "kartano.png",
-    kitchen: "makuuhuone.png",
+    kitchen: "ulkoovi.png",
     livingroom: "olohuone.png",
-    kidsroom: "eteinen.png",
-    finale: "kartano.png"
+    kidsroom: "makuuhuone.png",
+    finale: "eteinen.png"
   };
   playDoorTransition(images[sceneName] || "kartano.png");
 }
@@ -77,4 +79,7 @@ function startGame() {
   taustaAudio.play().catch(err => console.log("Ääni ei lähtenyt:", err));
 
   changeScene(
-    '
+    'kitchen',
+    'Kylpyhuone / Keittiö',
+    false,
+    "<p>Etsi ensimmä
