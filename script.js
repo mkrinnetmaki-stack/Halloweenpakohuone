@@ -1,5 +1,7 @@
 const background = document.getElementById("background");
 const startButton = document.getElementById("start-button");
+const nextButton = document.getElementById("next-button");
+const storyPanel = document.getElementById("story-panel");
 const taustaAudio = document.getElementById("tausta-audio");
 const oviAudio = document.getElementById("ovi-audio");
 
@@ -21,13 +23,9 @@ taustaAudio.play();
 function siirrySeuraavaanHuoneeseen() {
   if (currentScene >= scenes.length) return;
 
-  // Hiljennä taustaääni
   taustaAudio.volume = 0.3;
-
-  // Soita oviääni
   oviAudio.play();
 
-  // Liukuva siirtymä
   background.style.opacity = 0;
 
   setTimeout(() => {
@@ -35,23 +33,21 @@ function siirrySeuraavaanHuoneeseen() {
     background.style.opacity = 1;
     currentScene++;
 
-    // Palauta taustaääni
     setTimeout(() => {
       taustaAudio.volume = 1.0;
-    }, 5000); // ovi.wav kestää 5 sekuntia
+    }, 5000);
   }, 5000);
 }
 
-// Aloituspainikkeen toiminta
+// Aloituspainike
 startButton.addEventListener("click", () => {
+  storyPanel.style.display = "none";
   startButton.style.display = "none";
+  nextButton.style.display = "block";
   siirrySeuraavaanHuoneeseen();
+});
 
-  // Siirry automaattisesti seuraaviin huoneisiin
-  let delay = 6000;
-  for (let i = 1; i < scenes.length; i++) {
-    setTimeout(() => {
-      siirrySeuraavaanHuoneeseen();
-    }, delay * i);
-  }
+// Seuraava huone -painike
+nextButton.addEventListener("click", () => {
+  siirrySeuraavaanHuoneeseen();
 });
