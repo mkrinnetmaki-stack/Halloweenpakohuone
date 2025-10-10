@@ -3,35 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halloween Pakohuone</title>
+  <title>Kirottu Aarre ja Ikuiset Varjot</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="game-container">
-    <div id="scene-wrapper">
-      <img id="scene-current" src="kartano.png" alt="Nykyinen tausta" />
-      <img id="scene-next" src="" alt="Seuraava tausta" />
+<div id="wrapper">
+    <button 
+        onclick="changeScene('livingroom', 'Olohuone', true, '<p>Valvojan siirto</p>')" 
+        style="position: fixed; top: 10px; right: 10px; background: none; border: none; color: #333; font-size: 0.7em; cursor: pointer; z-index: 100; opacity: 0.05;">
+        VALVOJAN SIIRTO
+    </button>
+
+    <div id="start-screen" class="scene-intro">
+        <h1>💀 KIROTTU AARRE JA IKUISET VARJOT 💀</h1>
+        <p>Tervetuloa Hylättyyn Kartanoon...</p>
+        <button onclick="startGame()">ALOITA SEIKKAILU (2:00:00)</button>
     </div>
 
-    <div id="story-panel">
-      <h1>Haamu-herran Kartano</h1>
-      <p>
-        Halloween on vaarassa! Haamu-herran Pimeyden Arkku on lukittu kolmella sinetöidyllä avaimella.
-        Vain rohkeat lapset voivat astua kartanoon ja ratkaista pulmat, jotka pelastavat juhlan.
-      </p>
-      <button id="start-button">Astu Kartanoon</button>
+    <div id="game-screen" style="display: none;">
+        <div id="timer-box">
+            <h2 id="timer-display">Jäljellä: 02:00:00</h2>
+            <div id="room-status">Huone: Kylpyhuone / Keittiö</div>
+        </div>
+        
+        <div id="scene-wrapper">
+            <img id="scene-current" src="kartano.png" alt="Nykyinen tausta" />
+            <img id="scene-next" src="" alt="Seuraava tausta" />
+        </div>
+
+        <div id="puzzle-content">
+            <p id="room-description"></p>
+        </div>
+
+        <div id="digital-lock" style="display: none;">
+            <h3>DIGITAALINEN LUKKO</h3>
+            <input type="text" id="lock-input" placeholder="Salasana..." maxlength="6">
+            <button onclick="checkLock()">AVAA LUKKO</button>
+            <p id="lock-message"></p>
+            <button id="continue-to-level3" onclick="continueToLevel3()" style="display: none;">JATKA PELIÄ LAPSEN HUONEESEEN</button>
+        </div>
+
+        <button id="manual-next-button" onclick="manualNextLevel()" style="display: none;">
+            Olen ratkaissut fyysisen lukon, siirry eteenpäin
+        </button>
+
+        <div id="final-lock" style="display: none;">
+            <h3>PIMEYDEN ARKUN LUKKO</h3>
+            <input type="text" id="final-lock-input" placeholder="Koodi..." maxlength="3">
+            <button onclick="checkFinalLock()">AVAA ARKUN LUKKO</button>
+            <p id="final-lock-message"></p>
+        </div>
     </div>
 
-    <div id="puzzle-panel" style="display:none;">
-      <h2 id="puzzle-title"></h2>
-      <p id="puzzle-text"></p>
-      <button id="next-button">Seuraava huone</button>
+    <div id="game-over-screen" style="display: none;">
+        <h1>GAME OVER!</h1>
+        <button onclick="continueGame()">JATKA PELIÄ (Lisäaika)</button>
     </div>
-  </div>
 
-  <audio id="tausta-audio" src="tausta.m4a" loop></audio>
-  <audio id="ovi-audio" src="ovi.wav"></audio>
+    <div id="finale-screen" style="display: none;">
+        <h1>🔥 HALLOWEEN PELASTETTU! 🔥</h1>
+        <h2 id="final-time"></h2>
+    </div>
+</div>
 
-  <script src="script.js"></script>
+<audio id="tausta-audio" src="tausta.m4a" loop></audio>
+<audio id="ovi-audio" src="ovi.wav"></audio>
+
+<script src="script.js"></script>
 </body>
 </html>
