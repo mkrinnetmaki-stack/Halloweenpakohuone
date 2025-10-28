@@ -1,5 +1,5 @@
 let countdownTimer;
-const START_TIME_SECONDS = 7200;
+const START_TIME_SECONDS = 120;
 let timeRemaining = START_TIME_SECONDS;
 let countingUp = false;
 let currentLevel = 1;
@@ -188,3 +188,4 @@ function continueGame() {
   countingUp = true;
   timeRemaining = START_TIME_SECONDS;
 }
+
